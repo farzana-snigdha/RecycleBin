@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback, SafeAreaView } from "react-native";
 
 export default function App() {
   console.log(require("./assets/icon.png"));
@@ -8,10 +8,12 @@ export default function App() {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Text onPress={handlePress}>
+      <Text >
         Open up App.js to start working on your app!
       </Text>
       <StatusBar style="auto" />
+      {/* touchables works as onPress for images */}
+      <TouchableWithoutFeedback onPress={handlePress} >
       <Image
       blurRadius={2} 
       fadeDuration={1000}
@@ -20,6 +22,9 @@ export default function App() {
         width: 200,
         height: 300,
         uri: "https://picsum.photos/seed/picsum/200/300"}} />
+
+      </TouchableWithoutFeedback>
+
     </SafeAreaView>
   );
 }
