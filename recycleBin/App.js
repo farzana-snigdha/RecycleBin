@@ -12,7 +12,14 @@ export default function App() {
         Open up App.js to start working on your app!
       </Text>
       <StatusBar style="auto" />
-      <Image source={require("./assets/icon.png")} />
+      <Image
+      blurRadius={2} 
+      fadeDuration={1000}
+      
+      source={{
+        width: 200,
+        height: 300,
+        uri: "https://picsum.photos/seed/picsum/200/300"}} />
     </SafeAreaView>
   );
 }
