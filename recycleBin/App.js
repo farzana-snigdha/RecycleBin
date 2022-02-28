@@ -14,9 +14,10 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <View style={{ backgroundColor: "#12342a", flex: 3 }} />
-      <View style={{ backgroundColor: "gold", flex: 2 }} />
-      <View style={{ backgroundColor: "tomato", flex: 1 }} />
+      {/* in potrait mode, flex is vertical by default */}
+      <View style={{ backgroundColor: "#12342a", width:100,height:100 }} />
+      <View style={{ backgroundColor: "gold", width:100,height:100 }} />
+      <View style={{ backgroundColor: "tomato", width:100,height:100 }} />
     </View>
   );
 }
@@ -27,5 +28,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     // alignItems: "center",
     // justifyContent: "center",
+    flexDirection:"row-reverse"
   },
 });
