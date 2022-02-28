@@ -4,31 +4,41 @@ import {
   View,
   SafeAreaView,
   Alert,
-  Button, Platform, StatusBar,
-  Dimensions
+  Button,
+  Platform,
+  StatusBar,
+  Dimensions,
 } from "react-native";
+import {
+  useDimensions,
+  useDeviceOrientation,
+} from "@react-native-community/hooks";
 
 export default function App() {
+  const dimensions = useDimensions();
+  //to change width in landscape mode
+  const { landscape } = useDeviceOrientation();
+
   const clickYes = () => {
     console.log("yes clicked");
   };
-  console.log(Dimensions.get("window"));
+  console.log(dimensions);
   const handlePress = () => {
     //to show an alert
     Alert.alert("my title", "button clicked", [
-      { text: "yes", onPress: clickYes},
-      { text: "no" , onPress: ()=>console.log("no clicked")},
+      { text: "yes", onPress: clickYes },
+      { text: "no", onPress: () => console.log("no clicked") },
     ]);
-
-   
   };
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{backgroundColor:"blue",
-    width:"50%",
-    height:"30%"}}>
-
-      </View>
+      <View
+        style={{
+          backgroundColor: "blue",
+          width: "100%",
+          height: landscape ? "100%" : "30%",
+        }}
+      ></View>
       <StatusBar style="auto" />
       <Button title="click" onPress={handlePress} />
     </SafeAreaView>
@@ -41,6 +51,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     // alignItems: "center",
     // justifyContent: "center",
-  
   },
 });
