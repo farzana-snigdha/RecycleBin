@@ -4,14 +4,15 @@ import {
   View,
   SafeAreaView,
   Alert,
-  Button, Platform, StatusBar
+  Button, Platform, StatusBar,
+  Dimensions
 } from "react-native";
 
 export default function App() {
   const clickYes = () => {
     console.log("yes clicked");
   };
-  console.log(StatusBar.currentHeight);
+  console.log(Dimensions.get("window"));
   const handlePress = () => {
     //to show an alert
     Alert.alert("my title", "button clicked", [
@@ -23,6 +24,11 @@ export default function App() {
   };
   return (
     <SafeAreaView style={styles.container}>
+      <View style={{backgroundColor:"blue",
+    width:"50%",
+    height:"30%"}}>
+
+      </View>
       <StatusBar style="auto" />
       <Button title="click" onPress={handlePress} />
     </SafeAreaView>
