@@ -1,7 +1,10 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
 import { auth } from '../../firebase'
+
+import AppText from '../components/AppTextComponent'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
@@ -17,12 +20,12 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Email: {auth.currentUser?.email}</Text>
+      <AppText>Email: {auth.currentUser?.email}</AppText>
       <TouchableOpacity
         onPress={handleSignOut}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Sign out</Text>
+        <AppText style={styles.buttonText}>Sign out</AppText>
       </TouchableOpacity>
     </View>
   )

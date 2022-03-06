@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
+import colors from "../config/colors";
 
 /**
  * @author
@@ -12,11 +13,13 @@ export const WelcomeScreen = (props) => {
       style={styles.background}
       source={require("../assets/backgroung.jpg")}
     >
-        <View style={styles.logoContainer}>
-
-      <Image style={styles.logo} source={require("../assets/sale-logo.png")} />
-      <Text>Sell what you don't need</Text>
-        </View>
+      <View style={styles.logoContainer}>
+        <Image
+          style={styles.logo}
+          source={require("../assets/sale-logo.png")}
+        />
+        <Text>Sell what you don't need</Text>
+      </View>
       <View style={styles.loginBtn}></View>
       <View style={styles.regBtn}></View>
     </ImageBackground>
@@ -24,11 +27,9 @@ export const WelcomeScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-    logoContainer: {
-        position: "absolute",
-        top: 60,
-   
-    
+  logoContainer: {
+    position: "absolute",
+    top: 60,
     alignItems: "center",
   },
   background: {
@@ -40,13 +41,11 @@ const styles = StyleSheet.create({
   loginBtn: {
     width: "100%",
     height: 70,
-    backgroundColor: "#12ac45",
+    backgroundColor: colors.primary,
   },
-  regBtn: { width: "100%", height: 70, backgroundColor: "#c2a01c" },
+  regBtn: { width: "100%", height: 70, backgroundColor: colors.secondary },
   logo: {
     width: 100,
     height: 100,
-   
-
   },
 });

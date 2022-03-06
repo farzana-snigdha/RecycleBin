@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { auth } from "../../firebase";
+import colors from "../config/colors";
+import ButtonTextComponent from "./ButtonTextComponent";
 
 /**
  * @author
@@ -66,13 +68,13 @@ export const AuthComponent = (props) => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={handleLogin} style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
+          <ButtonTextComponent style={styles.buttonText}>Login</ButtonTextComponent>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handleSignUp}
           style={[styles.button, styles.buttonOutline]}
         >
-          <Text style={styles.buttonOutlineText}>Register</Text>
+          <ButtonTextComponent style={styles.buttonOutlineText}>Register</ButtonTextComponent>
         </TouchableOpacity>
       </View>
     </>
@@ -97,26 +99,17 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: "#0782F9",
+    backgroundColor: colors.primary,
     width: "100%",
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
   },
   buttonOutline: {
-    backgroundColor: "white",
+    backgroundColor: colors.secondary,
     marginTop: 5,
-    borderColor: "#0782F9",
+    borderColor: colors.secondary ,
     borderWidth: 2,
   },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-  },
-  buttonOutlineText: {
-    color: "#0782F9",
-    fontWeight: "700",
-    fontSize: 16,
-  },
+ 
 });
