@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { auth } from "../../firebase";
 import colors from "../config/colors";
+import AppButton from "./AppButton";
 import { ButtonText} from "./AppTextComponent";
 
 /**
@@ -67,15 +68,17 @@ export const AuthComponent = (props) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={handleLogin} style={styles.button}>
+        <AppButton title="Login" onPress={handleLogin} />
+        <AppButton title="Register" onPress={handleSignUp} color="secondary"/>
+        {/* <TouchableOpacity onPress={handleLogin} style={styles.button}>
           <ButtonText style={styles.buttonText}>Login</ButtonText>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </TouchableOpacity> */}
+        {/* <TouchableOpacity
           onPress={handleSignUp}
           style={[styles.button, styles.buttonOutline]}
         >
           <ButtonText style={styles.buttonOutlineText}>Register</ButtonText>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </>
   );
