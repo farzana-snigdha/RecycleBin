@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 
 /**
  * @author
@@ -12,6 +12,11 @@ export const WelcomeScreen = (props) => {
       style={styles.background}
       source={require("../assets/backgroung.jpg")}
     >
+        <View style={styles.logoContainer}>
+
+      <Image style={styles.logo} source={require("../assets/sale-logo.png")} />
+      <Text>Sell what you don't need</Text>
+        </View>
       <View style={styles.loginBtn}></View>
       <View style={styles.regBtn}></View>
     </ImageBackground>
@@ -19,18 +24,29 @@ export const WelcomeScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
+    logoContainer: {
+        position: "absolute",
+        top: 60,
+   
+    
     alignItems: "center",
   },
-  background: { flex: 1,
+  background: {
+    flex: 1,
     // to put the btn at the bottom of the screen
-    justifyContent: "flex-end" },
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
   loginBtn: {
     width: "100%",
     height: 70,
     backgroundColor: "#12ac45",
   },
   regBtn: { width: "100%", height: 70, backgroundColor: "#c2a01c" },
+  logo: {
+    width: 100,
+    height: 100,
+   
+
+  },
 });
