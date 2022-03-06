@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { auth } from '../../firebase'
 
-import AppText from '../components/AppTextComponent'
+import {AppText} from '../components/AppTextComponent'
 
 const HomeScreen = () => {
   const navigation = useNavigation()
