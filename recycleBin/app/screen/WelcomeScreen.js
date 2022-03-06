@@ -1,9 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState } from 'react'
-import { KeyboardAvoidingView,  TextInput, TouchableOpacity,View, Text, StyleSheet, ImageBackground, Image  } from 'react-native'
-import { auth } from '../../firebase'
-import { AuthComponent } from "../components/AuthComponent";
-
+import React from "react";
+import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 
 /**
  * @author
@@ -11,63 +7,28 @@ import { AuthComponent } from "../components/AuthComponent";
  **/
 export const WelcomeScreen = (props) => {
   const { container } = styles;
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const navigation = useNavigation()
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        navigation.navigate("Home")
-      }
-    })
-
-    return unsubscribe
-  }, [])
-
-  const handleSignUp = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Registered with:', user.email);
-      })
-      .catch(error => alert(error.message))
-  }
-
-  const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
-      })
-      .catch(error => alert(error.message))
-  }
   return (
     <ImageBackground
       style={styles.background}
       source={require("../assets/backgroung.jpg")}
     >
-      <View style={styles.logoContainer}>
-        <Image
-          style={styles.logo}
-          source={require("../assets/sale-logo.png")}
-        />
-        <Text>Sell what you don't need</Text>
-      </View>
+        <View style={styles.logoContainer}>
 
-      <AuthComponent/>
+      <Image style={styles.logo} source={require("../assets/sale-logo.png")} />
+      <Text>Sell what you don't need</Text>
+        </View>
+      <View style={styles.loginBtn}></View>
+      <View style={styles.regBtn}></View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  logoContainer: {
-    position: "absolute",
-    top: 60,
-
+    logoContainer: {
+        position: "absolute",
+        top: 60,
+   
+    
     alignItems: "center",
   },
   background: {
@@ -85,7 +46,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
-  },
+   
 
- 
+  },
 });
