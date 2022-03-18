@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
-import { KeyboardAvoidingView, StyleSheet } from "react-native";
+import { KeyboardAvoidingView, StyleSheet, View } from "react-native";
 import { auth } from "../../firebase";
-import { AuthComponent } from "../components/AuthComponent";
+import { AuthLoginComponent } from "../components/AuthLoginComponent";
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
+  const navigation =useNavigation()
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -18,9 +18,9 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <AuthComponent />
-    </KeyboardAvoidingView>
+    <View style={styles.container} behavior="padding">
+      <AuthLoginComponent />
+    </View>
   );
 };
 
