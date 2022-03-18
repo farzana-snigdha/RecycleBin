@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 15,
     backgroundColor: colors.white,
-    marginBottom: 20,
+    marginBottom: 16,
     overflow: "hidden",
   },
   detailsContainer: {
     padding: 20,
   },
-  image: { width: "100%", height: 200 },
-  title: { marginBottom: 7 },
+  image: { width: "100%", height: 160 },
+  title: { marginBottom: 5 },
   subTitle: { color: colors.secondary, fontWeight: "bold" },
 });
