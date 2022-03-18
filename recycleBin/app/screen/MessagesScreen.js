@@ -1,47 +1,84 @@
-import { View, Text, StyleSheet, FlatList, StatusBar } from "react-native";
-import React from "react";
-import ListItem from "../components/ListItem";
-import ListItemSeperator from "../components/ListItemSeperator";
+import React, { useState } from "react";
+import { FlatList, StatusBar, StyleSheet, View,Text } from "react-native";
+import { LongPressGestureHandler, State } from 'react-native-gesture-handler';
 
-const messages = [
+
+import ListItem from "../components/ListItem";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItemSeparator from "../components/ListItemSeparator";
+
+const initialMessages = [
   {
     id: 1,
     title: "T1",
-    desc: "d1",
+    description: "D1",
     image: require("../assets/sloth.jpg"),
   },
   {
     id: 2,
     title: "T2",
-    desc: "d2",
-    image: require("../assets/sloth.jpg"),
-  },
-  {
-    id: 3,
-    title: "T3",
-    desc: "d3",
+    description: "D2",
     image: require("../assets/sloth.jpg"),
   },
 ];
 
-export default function MessagesScreen() {
+function MessagesScreen(props) {
+  const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleDelete = (message) => {
+    // Delete the message from messages
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
+
+  const onLongPress = (event) => {
+    if (event.nativeEvent.state === State.ACTIVE) {
+      alert("I've been pressed for 800 milliseconds");
+    }
+  };
+
   return (
+    <LongPressGestureHandler
+    onHandlerStateChange={onLongPress}
+    minDurationMs={800}
+  >
     <View>
       <StatusBar />
       <FlatList
         data={messages}
-        keyExtractor={(i) => i.id.toString()}
+        keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
           <ListItem
             title={item.title}
-            subTitle={item.desc}
+            subTitle={item.description}
             image={item.image}
+            onPress={() => console.log("Message selected", item)}
+            renderRightActions={() => 
+             
+                <ListItemDeleteAction onPress={() => handleDelete(item)} />
+              
+            }
           />
         )}
-        ItemSeparatorComponent={() => (
-          <ListItemSeperator/>
-        )}
+        ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/sloth.jpg"),
+            },
+          ]);
+        }}
       />
     </View>
+    </LongPressGestureHandler>
+
   );
 }
+
+const styles = StyleSheet.create({});
+
+export default MessagesScreen;
