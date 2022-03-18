@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { FlatList, StatusBar, StyleSheet, View,Text } from "react-native";
-import { LongPressGestureHandler, State } from 'react-native-gesture-handler';
-
+import { FlatList, StatusBar, StyleSheet, View, Text } from "react-native";
+import { LongPressGestureHandler, State } from "react-native-gesture-handler";
 
 import ListItem from "../components/ListItem";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
@@ -39,43 +38,40 @@ function MessagesScreen(props) {
 
   return (
     <LongPressGestureHandler
-    onHandlerStateChange={onLongPress}
-    minDurationMs={800}
-  >
-    <View>
-      <StatusBar />
-      <FlatList
-        data={messages}
-        keyExtractor={(message) => message.id.toString()}
-        renderItem={({ item }) => (
-          <ListItem
-            title={item.title}
-            subTitle={item.description}
-            image={item.image}
-            onPress={() => console.log("Message selected", item)}
-            renderRightActions={() => 
-             
+      onHandlerStateChange={onLongPress}
+      minDurationMs={800}
+    >
+      <View>
+        <StatusBar />
+        <FlatList
+          data={messages}
+          keyExtractor={(message) => message.id.toString()}
+          renderItem={({ item }) => (
+            <ListItem
+              title={item.title}
+              subTitle={item.description}
+              image={item.image}
+              onPress={() => console.log("Message selected", item)}
+              renderRightActions={() => (
                 <ListItemDeleteAction onPress={() => handleDelete(item)} />
-              
-            }
-          />
-        )}
-        ItemSeparatorComponent={ListItemSeparator}
-        refreshing={refreshing}
-        onRefresh={() => {
-          setMessages([
-            {
-              id: 2,
-              title: "T2",
-              description: "D2",
-              image: require("../assets/sloth.jpg"),
-            },
-          ]);
-        }}
-      />
-    </View>
+              )}
+            />
+          )}
+          ItemSeparatorComponent={ListItemSeparator}
+          refreshing={refreshing}
+          onRefresh={() => {
+            setMessages([
+              {
+                id: 2,
+                title: "T2",
+                description: "D2",
+                image: require("../assets/sloth.jpg"),
+              },
+            ]);
+          }}
+        />
+      </View>
     </LongPressGestureHandler>
-
   );
 }
 
