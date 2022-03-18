@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -15,10 +16,10 @@ import { ButtonText} from "./AppTextComponent";
  * @author
  * @function AuthComponent
  **/
-export const AuthComponent = (props) => {
+export const AuthLoginComponent = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+const navigation =useNavigation()
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
