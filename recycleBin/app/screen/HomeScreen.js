@@ -13,7 +13,7 @@ const HomeScreen = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("Welcome")
+        navigation.navigate("Welcome")
       })
       .catch(error => alert(error.message))
   }
