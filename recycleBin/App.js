@@ -6,19 +6,20 @@ import LoginScreen from './app/screen/LoginScreen';
 import HomeScreen from './app/screen/HomeScreen';
 import { WelcomeScreen } from './app/screen/WelcomeScreen';
 import ViewImageScreen from './app/screen/ViewImageScreen';
-
+import NavRoute from "./app/navigation/NavRoute.js"
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <NavRoute/>
     // <ViewImageScreen/>
-    <NavigationContainer>
-      <Stack.Navigator>
-      {/* <Stack.Screen options={{ headerShown: false }} name="Welcome" component={WelcomeScreen} /> */}
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Stack.Navigator>
+    //   {/* <Stack.Screen options={{ headerShown: false }} name="Welcome" component={WelcomeScreen} /> */}
+    //     <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
+    //     <Stack.Screen name="Home" component={HomeScreen} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   );
 }
 
