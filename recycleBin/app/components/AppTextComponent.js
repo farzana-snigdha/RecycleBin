@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, Platform } from "react-native";
 import React from "react";
 
-const AppText = (props) => {
-  return <Text style={styles.AppText}>{props.children}</Text>;
+const AppText = ({children, style}) => {
+  return <Text style={[styles.AppText, style]}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const ButtonText = (props) => {
-  return <Text style={styles.buttonText}>{props.children}</Text>;
+const ButtonText = ({children}) => {
+  return <Text style={styles.buttonText}>{children}</Text>;
 };
 
 export { AppText, ButtonText };
