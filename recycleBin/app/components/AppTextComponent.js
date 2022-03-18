@@ -10,16 +10,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
-  buttonText: {
-    color: "white",
-    fontWeight: "700",
-    fontSize: 16,
-    fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
-  },
+ 
 });
 
-const ButtonText = ({ children }) => {
-  return <Text style={styles.buttonText}>{children}</Text>;
-};
 
-export { AppText, ButtonText };
+
+export { AppText };
