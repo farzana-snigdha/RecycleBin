@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: colors.white,
     marginBottom: 20,
-    overflow:"hidden" 
+    overflow: "hidden",
   },
   detailsContainer: {
     padding: 20,
   },
-  image: { width: "100%", height: 200,},
+  image: { width: "100%", height: 200 },
   title: { marginBottom: 7 },
   subTitle: { color: colors.secondary, fontWeight: "bold" },
 });
