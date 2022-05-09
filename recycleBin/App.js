@@ -8,14 +8,18 @@ import { WelcomeScreen } from "./app/screen/WelcomeScreen";
 import ViewImageScreen from "./app/screen/ViewImageScreen";
 import NavRoute from "./app/navigation/NavRoute.js";
 import ItemListScreen from "./app/screen/ItemListScreen";
+import ListingDetailsScreen from "./app/screen/ListingDetailsScreen";
+import MessagesScreen from "./app/screen/MessagesScreen";
+import AccountScreen from "./app/screen/AccountScreen";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     // <NavRoute/>
-    <ItemListScreen />
+    // <ListingDetailsScreen />
 
     // <ViewImageScreen/>
+    <ItemListScreen/> // aka listing screens in vid 64
  
   );
 }
