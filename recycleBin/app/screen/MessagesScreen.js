@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FlatList, StatusBar, StyleSheet, View, Text } from "react-native";
 import { LongPressGestureHandler, State } from "react-native-gesture-handler";
 
-import ListItem from "../components/ListItem";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import ListItemSeparator from "../components/ListItemSeparator";
+import ListItem from "../components/lists/ListItem";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
 
 const initialMessages = [
   {
