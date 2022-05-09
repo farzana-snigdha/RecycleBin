@@ -11,7 +11,12 @@ import {
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
-  price: Yup.number().required().min(1).max(10000).label("Price"),
+  buyingPrice: Yup.number().required().min(1).max(10000).label("Buying Price"),
+  sellingPrice: Yup.number()
+    .required()
+    .min(1)
+    .max(10000)
+    .label("Selling Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
 });
@@ -20,13 +25,14 @@ const categories = [
   { label: "Furniture", value: 1 },
   { label: "Clothing", value: 2 },
   { label: "Electronics", value: 3 },
-  { label: "Others", value: 4 },
+  { label: "Home appliances", value: 3 },
+  { label: "Others", value: 5 },
 ];
 
 function ListingEditScreen() {
   return (
     <View style={styles.container}>
-      <StatusBar/>
+      <StatusBar />
       <Form
         initialValues={{
           title: "",
@@ -37,19 +43,26 @@ function ListingEditScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <Picker items={categories} name="category" placeholder="Category" />
+
         <FormField maxLength={255} name="title" placeholder="Title" />
         <FormField
           keyboardType="numeric"
           maxLength={8}
-          name="price"
-          placeholder="Price"
+          name="buyingPrice"
+          placeholder="Buying Price"
         />
-        <Picker items={categories} name="category" placeholder="Category" />
         <FormField
-          maxLength={255}
+          keyboardType="numeric"
+          maxLength={8}
+          name="sellingPrice"
+          placeholder="Selling Price"
+        />
+        <FormField
+          maxLength={1000}
           multiline
           name="description"
-          numberOfLines={3}
+          numberOfLines={5}
           placeholder="Description"
         />
         <SubmitButton title="Post" />
