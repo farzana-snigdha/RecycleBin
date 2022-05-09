@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, StatusBar, StyleSheet, View, Text } from "react-native";
-import { LongPressGestureHandler, State } from "react-native-gesture-handler";
 
-import ListItem from "../components/lists/ListItem";
-import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
-import ListItemSeparator from "../components/lists/ListItemSeparator";
-
+import {ListItem,ListItemDeleteAction,ListItemSeparator } from "../components/lists"
 const initialMessages = [
   {
     id: 1,
@@ -31,11 +27,7 @@ function MessagesScreen(props) {
     setMessages(messages.filter((m) => m.id !== message.id));
   };
 
-  const onLongPress = (event) => {
-    if (event.nativeEvent.state === State.ACTIVE) {
-      alert("I've been pressed for 800 milliseconds");
-    }
-  };
+ 
 
   return (
     <View style={styles.container}>
@@ -50,7 +42,7 @@ function MessagesScreen(props) {
             image={item.image}
             onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
-              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+              <ListItemDeleteAction onPress={() => handleDelete(item)}  />
             )}
           />
         )}
