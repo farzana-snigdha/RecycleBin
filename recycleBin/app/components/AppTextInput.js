@@ -1,22 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { View, TextInput, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TextInput } from "react-native-gesture-handler";
 
 import defaultStyles from "../config/styles";
-export default function AppTextInput({ icon, ...otherProps }) {
+
+function AppTextInput({ icon, ...otherProps }) {
   return (
     <View style={styles.container}>
-      {/* <Text>AppTextInput</Text> */}
       {icon && (
         <MaterialCommunityIcons
           name={icon}
           size={25}
           color={defaultStyles.colors.mediumGrey}
-          style={styles.icons}
+          style={styles.icon}
         />
       )}
-      <TextInput style={defaultStyles} {...otherProps} />
+      <TextInput style={defaultStyles.text} {...otherProps} />
     </View>
   );
 }
@@ -30,6 +29,9 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 10,
   },
-  
-  icons: {marginRight:10},
+  icon: {
+    marginRight: 10,
+  },
 });
+
+export default AppTextInput;
