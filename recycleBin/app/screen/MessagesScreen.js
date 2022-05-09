@@ -9,7 +9,8 @@ import ListItemSeparator from "../components/lists/ListItemSeparator";
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
+    title:
+      "T1 cdacac acawcaccwcw cweaewcswcw ecaecawedxq wdqadqecdca qdqcqadcqwdxq qdqcqc",
     description: "D1",
     image: require("../assets/sloth.jpg"),
   },
@@ -37,44 +38,41 @@ function MessagesScreen(props) {
   };
 
   return (
-    <LongPressGestureHandler
-      onHandlerStateChange={onLongPress}
-      minDurationMs={800}
-    >
-      <View>
-        <StatusBar />
-        <FlatList
-          data={messages}
-          keyExtractor={(message) => message.id.toString()}
-          renderItem={({ item }) => (
-            <ListItem
-              title={item.title}
-              subTitle={item.description}
-              image={item.image}
-              onPress={() => console.log("Message selected", item)}
-              renderRightActions={() => (
-                <ListItemDeleteAction onPress={() => handleDelete(item)} />
-              )}
-            />
-          )}
-          ItemSeparatorComponent={ListItemSeparator}
-          refreshing={refreshing}
-          onRefresh={() => {
-            setMessages([
-              {
-                id: 2,
-                title: "T2",
-                description: "D2",
-                image: require("../assets/sloth.jpg"),
-              },
-            ]);
-          }}
-        />
-      </View>
-    </LongPressGestureHandler>
+    <View style={styles.container}>
+      <StatusBar />
+      <FlatList
+        data={messages}
+        keyExtractor={(message) => message.id.toString()}
+        renderItem={({ item }) => (
+          <ListItem
+            title={item.title}
+            subTitle={item.description}
+            image={item.image}
+            onPress={() => console.log("Message selected", item)}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+            )}
+          />
+        )}
+        ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id: 2,
+              title: "T2",
+              description: "D2",
+              image: require("../assets/sloth.jpg"),
+            },
+          ]);
+        }}
+      />
+    </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: { flex: 1,  },
+});
 
 export default MessagesScreen;
