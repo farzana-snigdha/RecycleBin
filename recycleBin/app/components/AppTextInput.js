@@ -15,7 +15,9 @@ function AppTextInput({ icon, ...otherProps }) {
           style={styles.icon}
         />
       )}
-      <TextInput style={defaultStyles.text} {...otherProps} />
+      <TextInput 
+      placeholderTextColor={defaultStyles.colors.mediumGrey}
+      style={defaultStyles.text} {...otherProps} />
     </View>
   );
 }
