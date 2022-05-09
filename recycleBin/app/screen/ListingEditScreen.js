@@ -1,6 +1,9 @@
 import React from "react";
 import { StatusBar, StyleSheet, View } from "react-native";
 import * as Yup from "yup";
+import CategoryPickerItem from "../components/CategoryPickerItem";
+
+
 
 import {
   AppForm as Form,
@@ -43,7 +46,7 @@ function ListingEditScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <Picker items={categories} name="category" placeholder="Category" />
+        <Picker items={categories} name="category" placeholder="Category" PickerItemComponent={CategoryPickerItem} />
 
         <FormField maxLength={255} name="title" placeholder="Title" />
         <FormField

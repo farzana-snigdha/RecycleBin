@@ -1,15 +1,12 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  Image,
-  TouchableHighlight,
-} from "react-native";
-import Swipeable from "react-native-gesture-handler/Swipeable";
+import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
+// import Swipeable from "react-native-gesture-handler/Swipeable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../../config/colors";
 import { AppText } from "../AppTextComponent";
+
+import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler";
 
 function ListItem({
   title,
@@ -21,18 +18,19 @@ function ListItem({
 }) {
   const rightSwipeActions = () => {
     return (
+      
       <View
         style={{
-          backgroundColor: '#ff8303',
-          justifyContent: 'center',
-          alignItems: 'flex-end',
+          backgroundColor: "#ff8303",
+          justifyContent: "center",
+          alignItems: "flex-end",
         }}
       >
         <Text
           style={{
-            color: '#1b1a17',
+            color: "#1b1a17",
             paddingHorizontal: 10,
-            fontWeight: '600',
+            fontWeight: "600",
             paddingHorizontal: 30,
             paddingVertical: 20,
           }}
@@ -43,31 +41,48 @@ function ListItem({
     );
   };
   return (
-    <Swipeable renderRightActions={()=>{rightSwipeActions;renderRightActions}}>
-      <TouchableHighlight  underlayColor={colors.lightGrey} onPress={onPress}>
+    <GestureHandlerRootView>
+    <Swipeable
+      renderRightActions={() => {
+        rightSwipeActions;
+        renderRightActions;
+      }}
+    >
+      <TouchableHighlight underlayColor={colors.lightGrey} onPress={onPress}>
         <View style={styles.container}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
-            <AppText style={styles.title} numberOfLines={1} >{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle}  numberOfLines={2 }>{subTitle}</AppText>}
+            <AppText style={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
+            {subTitle && (
+              <AppText style={styles.subTitle} numberOfLines={2}>
+                {subTitle}
+              </AppText>
+            )}
           </View>
-          <MaterialCommunityIcons color={colors.mediumGrey} name="chevron-right" size={25} /> 
+          <MaterialCommunityIcons
+            color={colors.mediumGrey}
+            name="chevron-right"
+            size={25}
+          />
         </View>
       </TouchableHighlight>
     </Swipeable>
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems:'center',
+    alignItems: "center",
     flexDirection: "row",
     padding: 15,
     backgroundColor: colors.white,
   },
   detailsContainer: {
-    flex:1,
+    flex: 1,
     marginLeft: 10,
     justifyContent: "center",
   },
