@@ -47,8 +47,8 @@ export default function App() {
     //   <AppTextInput icon="email" placeholder="Email" />
     // </View>
 
-<MessagesScreen/>
-    // <ListingEditScreen/>
+// <MessagesScreen/> 
+    <ListingEditScreen/>
   );
 }
 
