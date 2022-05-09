@@ -6,17 +6,20 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AppPicker from "./app/components/AppPicker";
 import AppTextInput from "./app/components/AppTextInput";
 import LoginScreen from "./app/screen/LoginScreen";
+import RegisterScreen from "./app/screen/RegisterScreen";
+import ListingEditScreen from "./app/screen/ListingEditScreen";
 
-const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Cameras", value: 3 },
-];
+// const categories = [
+//   { label: "Furniture", value: 1 },
+//   { label: "Clothing", value: 2 },
+//   { label: "Electronics", value: 3 },
+//   { label: "Others", value: 4 },
+// ];
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [category, setCategory] = useState(categories[0]);
+  // const [category, setCategory] = useState(categories[0]);
   return (
     // <NavRoute/>
     // <ListingDetailsScreen />
@@ -41,7 +44,7 @@ export default function App() {
     // </View>
 
 
-    <LoginScreen/>
+    <ListingEditScreen/>
   );
 }
 
