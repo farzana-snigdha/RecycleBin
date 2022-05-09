@@ -11,6 +11,7 @@ import ListingEditScreen from "./app/screen/ListingEditScreen";
 import ItemListScreen from "./app/screen/ItemListScreen"
 import AccountScreen from "./app/screen/AccountScreen";
 import ListingDetailsScreen from './app/screen/ListingDetailsScreen'
+import MessagesScreen from "./app/screen/MessagesScreen";
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -46,8 +47,8 @@ export default function App() {
     //   <AppTextInput icon="email" placeholder="Email" />
     // </View>
 
-
-    <ListingEditScreen/>
+<MessagesScreen/>
+    // <ListingEditScreen/>
   );
 }
 
