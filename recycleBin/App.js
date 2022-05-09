@@ -8,6 +8,9 @@ import AppTextInput from "./app/components/AppTextInput";
 import LoginScreen from "./app/screen/LoginScreen";
 import RegisterScreen from "./app/screen/RegisterScreen";
 import ListingEditScreen from "./app/screen/ListingEditScreen";
+import ItemListScreen from "./app/screen/ItemListScreen"
+import AccountScreen from "./app/screen/AccountScreen";
+import ListingDetailsScreen from './app/screen/ListingDetailsScreen'
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -28,7 +31,7 @@ export default function App() {
     // <ItemListScreen/> // aka listing screens in vid 64
 
 
-
+/* <AccountScreen/> */
 
 
     // <View>
