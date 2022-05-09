@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppPicker from "./app/components/AppPicker";
 import AppTextInput from "./app/components/AppTextInput";
+import LoginScreen from "./app/screen/LoginScreen";
 
 const categories = [
   { label: "Furniture", value: 1 },
@@ -22,17 +23,25 @@ export default function App() {
 
     // <ViewImageScreen/>
     // <ItemListScreen/> // aka listing screens in vid 64
-    <View>
-      <StatusBar />
-      <AppPicker
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      />
-      <AppTextInput icon="email" placeholder="Email" />
-    </View>
+
+
+
+
+
+    // <View>
+    //   <StatusBar />
+    //   <AppPicker
+    //     selectedItem={category}
+    //     onSelectItem={(item) => setCategory(item)}
+    //     items={categories}
+    //     icon="apps"
+    //     placeholder="Category"
+    //   />
+    //   <AppTextInput icon="email" placeholder="Email" />
+    // </View>
+
+
+    <LoginScreen/>
   );
 }
 
