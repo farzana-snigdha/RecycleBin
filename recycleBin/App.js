@@ -22,7 +22,7 @@ const handleRemove=uri=>{
 }
  
   return (
-    <View style={styles.container}>
+    <View >
       <StatusBar />
       {/* <ImageInput imageUri={imageUris} onChangeImage={uri=>setImageUris(uri)} /> */}
       <ImageInputList
