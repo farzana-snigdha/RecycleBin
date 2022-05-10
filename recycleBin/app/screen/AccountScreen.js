@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, View, FlatList, StatusBar } from "react-native";
+import { StyleSheet, View, FlatList,StatusBar } from "react-native";
 
-import ListItem from "../components/lists/ListItem";
+import { ListItem, ListItemSeparator } from "../components/lists";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
-import ListItemSeparator from "../components/lists/ListItemSeparator";
+import routes from "../navigation/routes";
 
 const menuItems = [
   {
@@ -20,12 +20,14 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targetScreen: routes.MESSAGES,
   },
 ];
 
-function AccountScreen(props) {
-  return (<View style={styles.screen}>
-    <StatusBar/>
+function AccountScreen({ navigation }) {
+  return (
+    <View style={styles.screen}>
+      <StatusBar />
       <View style={styles.container}>
         <ListItem
           title="Mosh Hamedani"
@@ -47,6 +49,7 @@ function AccountScreen(props) {
                   backgroundColor={item.icon.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
         />
@@ -55,13 +58,13 @@ function AccountScreen(props) {
         title="Log Out"
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
       />
-      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
-    flex:1,
+    flex: 1,
     backgroundColor: colors.lightGrey,
   },
   container: {
