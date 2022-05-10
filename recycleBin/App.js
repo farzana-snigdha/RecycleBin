@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import AppPicker from "./app/components/AppPicker";
-import AppTextInput from "./app/components/AppTextInput";
+import AppTextInput from "./app/components/TextInput";
 import LoginScreen from "./app/screen/LoginScreen";
 import RegisterScreen from "./app/screen/RegisterScreen";
 import ListingEditScreen from "./app/screen/ListingEditScreen";
