@@ -10,7 +10,7 @@ import {
 import { auth } from "../../firebase";
 import colors from "../config/colors";
 import AppButton from "./Button";
-import { ButtonText} from "./AppTextComponent";
+import { ButtonText} from "./Text";
 
 /**
  * @author
