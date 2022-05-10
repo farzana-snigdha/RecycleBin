@@ -7,29 +7,17 @@ import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
+import ListingEditScreen from "./app/screen/ListingEditScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // const [category, setCategory] = useState(categories[0]);
-  const [imageUris, setImageUris] = useState([]);
- 
-const handleAdd=uri=>{
-  setImageUris([...imageUris,uri])
-}
-const handleRemove=uri=>{
-  setImageUris(imageUris.filter(imageUri=>imageUri!==uri))
-}
+
  
   return (
     <View >
       <StatusBar />
-      {/* <ImageInput imageUri={imageUris} onChangeImage={uri=>setImageUris(uri)} /> */}
-      <ImageInputList
-      imageUris={imageUris}
-      onAddImage={handleAdd}
-      onRemoveImage={handleRemove}
-      />
+     <ListingEditScreen/>
     </View>
   );
 }
