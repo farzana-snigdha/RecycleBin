@@ -6,7 +6,7 @@ function ImageInputList({ imageUris = [], onRemoveImage, onAddImage }) {
   const scrollView = useRef();
 
   return (
-    <View>
+    <View >
       <ScrollView
         ref={scrollView}
         horizontal
