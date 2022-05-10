@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, StatusBar, Button,Image } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import * as ImagePicker from "expo-image-picker";
@@ -9,16 +8,20 @@ import ImageInput from "./app/components/ImageInput";
 import ImageInputList from "./app/components/ImageInputList";
 import ListingEditScreen from "./app/screen/ListingEditScreen";
 
-const Stack = createNativeStackNavigator();
+
+import { NavigationContainer } from "@react-navigation/native";
+import navigationTheme from "./app/navigation/navigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+
 
 export default function App() {
 
  
   return (
-    <View >
-      <StatusBar />
-     <ListingEditScreen/>
-    </View>
+    <NavigationContainer >
+    <AuthNavigator />
+  </NavigationContainer>
   );
 }
 
