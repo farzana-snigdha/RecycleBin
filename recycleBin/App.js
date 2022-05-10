@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import AppPicker from "./app/components/AppPicker";
+import AppPicker from "./app/components/Picker";
 import AppTextInput from "./app/components/TextInput";
 import LoginScreen from "./app/screen/LoginScreen";
 import RegisterScreen from "./app/screen/RegisterScreen";
@@ -46,7 +46,7 @@ export default function App() {
     //   />
     //   <AppTextInput icon="email" placeholder="Email" />
     // </View>
-
+// <LoginScreen/> 
 // <MessagesScreen/> 
     <ListingEditScreen/>
   );
