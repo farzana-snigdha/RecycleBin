@@ -123,10 +123,10 @@ const location=useLocation()
           placeholder="Selling Price"
         />
         <FormField
-          maxLength={1000}
+          maxLength={300}
           multiline
           name="description"
-          numberOfLines={5}
+          numberOfLines={3}
           placeholder="Description"
         />
         <SubmitButton title="Post" />
@@ -138,6 +138,7 @@ const location=useLocation()
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+  
   },
 });
 export default ListingEditScreen;
