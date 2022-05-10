@@ -1,55 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import AppPicker from "./app/components/Picker";
-import AppTextInput from "./app/components/TextInput";
-import LoginScreen from "./app/screen/LoginScreen";
-import RegisterScreen from "./app/screen/RegisterScreen";
-import ListingEditScreen from "./app/screen/ListingEditScreen";
-import ItemListScreen from "./app/screen/ItemListScreen"
-import AccountScreen from "./app/screen/AccountScreen";
-import ListingDetailsScreen from './app/screen/ListingDetailsScreen'
-import MessagesScreen from "./app/screen/MessagesScreen";
 
-// const categories = [
-//   { label: "Furniture", value: 1 },
-//   { label: "Clothing", value: 2 },
-//   { label: "Electronics", value: 3 },
-//   { label: "Others", value: 4 },
-// ];
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from 'expo-permissions'
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   // const [category, setCategory] = useState(categories[0]);
-  return (
-    // <NavRoute/>
-    // <ListingDetailsScreen />
 
-    // <ViewImageScreen/>
-    // <ItemListScreen/> // aka listing screens in vid 64
+  const requestPermission = async () => {
+    // const result =await Permissions.askAsync(Permissions.MEDIA_LIBRARY, Permissions.LOCATION_BACKGROUND)
+    const {granted} = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!granted) {
+      alert("You need to enable permission to access the library");
+    }
+  };
 
+  useEffect(() => {
+    requestPermission();
+  }, []);
 
-/* <AccountScreen/> */
-
-
-    // <View>
-    //   <StatusBar />
-    //   <AppPicker
-    //     selectedItem={category}
-    //     onSelectItem={(item) => setCategory(item)}
-    //     items={categories}
-    //     icon="apps"
-    //     placeholder="Category"
-    //   />
-    //   <AppTextInput icon="email" placeholder="Email" />
-    // </View>
-// <LoginScreen/> 
-// <MessagesScreen/> 
-    <ListingEditScreen/>
-  );
+  return <View></View>;
 }
 
 const styles = StyleSheet.create({
