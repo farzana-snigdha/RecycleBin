@@ -2,17 +2,16 @@ import React from "react";
 import { StyleSheet, Image, View, StatusBar } from "react-native";
 import * as Yup from "yup";
 
-import { AppForm, AppFormField, SubmitButton } from "../components/forms";
+import { Form, FormField, SubmitButton } from "../components/forms";
 
 import { auth } from "../../firebase";
 import { AuthLoginComponent } from "../components/AuthLoginComponent";
-
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(6).label("Password"),
 });
- 
+
 function LoginScreen(props) {
   // const navigation =useNavigation()
 
@@ -27,17 +26,16 @@ function LoginScreen(props) {
   // }, []);
 
   return (
-    
     <View style={styles.container}>
-      <StatusBar/>
+      <StatusBar />
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
 
-      <AppForm
+      <Form
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <AppFormField
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="email"
@@ -46,7 +44,7 @@ function LoginScreen(props) {
           placeholder="Email"
           textContentType="emailAddress"
         />
-        <AppFormField
+        <FormField
           autoCapitalize="none"
           autoCorrect={false}
           icon="lock"
@@ -56,8 +54,8 @@ function LoginScreen(props) {
           textContentType="password"
         />
         <SubmitButton title="Login" />
-      </AppForm>
-      </View>
+      </Form>
+    </View>
   );
 }
 

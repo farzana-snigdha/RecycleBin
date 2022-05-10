@@ -3,12 +3,10 @@ import { StatusBar, StyleSheet, View } from "react-native";
 import * as Yup from "yup";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 
-
-
 import {
-  AppForm as Form,
-  AppFormField as FormField,
-  AppFormPicker as Picker,
+  Form,
+  FormField,
+  FormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
 
@@ -95,7 +93,13 @@ function ListingEditScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <Picker items={categories} name="category" numberOfColumns={3} placeholder="Category" PickerItemComponent={CategoryPickerItem} />
+        <Picker
+          items={categories}
+          name="category"
+          numberOfColumns={3}
+          placeholder="Category"
+          PickerItemComponent={CategoryPickerItem}
+        />
 
         <FormField maxLength={255} name="title" placeholder="Title" />
         <FormField
