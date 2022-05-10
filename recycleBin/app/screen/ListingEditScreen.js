@@ -3,7 +3,13 @@ import { StatusBar, StyleSheet, View } from "react-native";
 import * as Yup from "yup";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 
-import { Form, FormField, Picker, SubmitButton } from "../components/forms";
+import {
+  Form,
+  FormField,
+  FormPicker as Picker,
+  SubmitButton,
+} from "../components/forms";
+import FormImagePicker from "../components/forms/FormImagePicker";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -15,6 +21,7 @@ const validationSchema = Yup.object().shape({
     .label("Selling Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select at least one image."),
 });
 
 const categories = [
@@ -88,6 +95,7 @@ function ListingEditScreen() {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images" />
         <Picker
           items={categories}
           name="category"
@@ -95,7 +103,6 @@ function ListingEditScreen() {
           placeholder="Category"
           PickerItemComponent={CategoryPickerItem}
         />
-
         <FormField maxLength={255} name="title" placeholder="Title" />
         <FormField
           keyboardType="numeric"
