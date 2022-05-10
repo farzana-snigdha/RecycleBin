@@ -2,15 +2,12 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   StyleSheet,
   TextInput,
-  TouchableOpacity,
 } from "react-native";
 import { auth } from "../../firebase";
 import colors from "../config/colors";
-import AppButton from "./Button";
-import { ButtonText} from "./Text";
+import Button from "./Button";
 
 /**
  * @author
@@ -69,8 +66,8 @@ const navigation =useNavigation()
       </View>
 
       <View style={styles.buttonContainer}>
-        <AppButton title="Login" onPress={handleLogin} />
-        <AppButton title="Register" onPress={handleSignUp} color="secondary"/>
+        <Button title="Login" onPress={handleLogin} />
+        <Button title="Register" onPress={handleSignUp} color="secondary"/>
         {/* <TouchableOpacity onPress={handleLogin} style={styles.button}>
           <ButtonText style={styles.buttonText}>Login</ButtonText>
         </TouchableOpacity> */}

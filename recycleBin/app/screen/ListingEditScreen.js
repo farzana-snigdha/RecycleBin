@@ -3,12 +3,7 @@ import { StatusBar, StyleSheet, View } from "react-native";
 import * as Yup from "yup";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 
-import {
-  Form,
-  FormField,
-  FormPicker as Picker,
-  SubmitButton,
-} from "../components/forms";
+import { Form, FormField, Picker, SubmitButton } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
