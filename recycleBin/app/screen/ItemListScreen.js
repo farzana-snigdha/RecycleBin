@@ -4,6 +4,7 @@ import { Card } from "react-native-elements";
 
 import { CardComponent } from "../components/CardComponent";
 import colors from "../config/colors";
+import routes from "../navigation/routes";
 const listings = [
   {
     id: 1,
@@ -19,7 +20,7 @@ const listings = [
   },
 ];
 
-export default function ItemListScreen() {
+export default function ItemListScreen({navigation}) {
 
   return (
     <View style={styles.screen}>
@@ -29,6 +30,7 @@ export default function ItemListScreen() {
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => 
           <CardComponent
+          onPress={()=>{navigation.navigate(routes.LISTING_DETAILS, item )}}
           title={item.title}
           subTitle={"$" + item.price}
           image={item.image}
