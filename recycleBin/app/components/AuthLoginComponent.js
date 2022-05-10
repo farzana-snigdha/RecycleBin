@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { auth } from "../../firebase";
 import colors from "../config/colors";
-import AppButton from "./AppButton";
+import AppButton from "./Button";
 import { ButtonText} from "./AppTextComponent";
 
 /**
