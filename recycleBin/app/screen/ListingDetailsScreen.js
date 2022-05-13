@@ -14,7 +14,9 @@ function ListingDetailsScreen({ route }) {
       <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
-        <AppText style={styles.price}>${listing.price}</AppText>
+        
+        <AppText style={styles.SellingPrice}>Selling Price: ${listing.sellingPrice}</AppText>
+        <AppText style={styles.BuyingPrice}>Buying Price: ${listing.buyingPrice}</AppText>
         <View style={styles.userContainer}>
           <ListItem
             image={require("../assets/sloth.jpg")}
@@ -35,7 +37,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
   },
-  price: {
+  BuyingPrice: {
+    color: colors.secondary,
+    fontSize: 18,
+    marginVertical: 10,
+  },
+  SellingPrice: {
     color: colors.secondary,
     fontWeight: "bold",
     fontSize: 20,
