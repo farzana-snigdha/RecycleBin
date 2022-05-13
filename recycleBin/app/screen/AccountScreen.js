@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, FlatList,StatusBar } from "react-native";
+import { StyleSheet, View, FlatList, StatusBar } from "react-native";
 
 import { ListItem, ListItemSeparator } from "../components/lists";
 import colors from "../config/colors";
