@@ -12,29 +12,24 @@ import ActivityIndicator from "../components/ActivityIndicator";
 import useApi from "../hooks/useApi";
 
 export default function ItemListScreen({ navigation }) {
-  const {
-    data: listings,
-    error,
-    loading,
-    request: loadListings,
-  } = useApi(listingsAPI.getListings);
+  const getListingsApi = useApi(listingsAPI.getListings);
 
   useEffect(() => {
-    loadListings();
+    getListingsApi.request();
   }, []);
 
   return (
     <View style={styles.screen}>
       <StatusBar />
-      {error && (
+      {getListingsApi.error && (
         <>
           <AppText>Couldn't retrieve the listings.</AppText>
           <Button title="Retry" onPress={loadListings}></Button>
         </>
       )}
-      <ActivityIndicator visible={loading} />
+      <ActivityIndicator visible={getListingsApi.loading} />
       <FlatList
-        data={listings}
+        data={getListingsApi.data}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <CardComponent
