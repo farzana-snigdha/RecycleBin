@@ -15,7 +15,7 @@ export default function ItemListScreen({ navigation }) {
   const getListingsApi = useApi(listingsAPI.getListings);
 
   useEffect(() => {
-    getListingsApi.request();
+    getListingsApi.request(1,2,4);
   }, []);
 
   return (
